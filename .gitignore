@@ -1,0 +1,21 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Build artefacts that are NOT committed
+/dist/
+*.log
+.phpcs-cache
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local WordPress environment
+/.wp-env.override.json
+/.claude/
+/doc/
+claude.md
+/.playwright-mcp/

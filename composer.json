@@ -1,0 +1,24 @@
+{
+  "name": "atelier-mira/atelier-mira",
+  "description": "Atelier Mira – custom WordPress theme and WooCommerce extension for an illustrator's portfolio and print shop (portfolio project).",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "wp-coding-standards/wpcs": "^3.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "lint": "phpcs",
+    "lint:fix": "phpcbf"
+  }
+}

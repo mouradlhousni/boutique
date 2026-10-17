@@ -1,0 +1,125 @@
+/* Mira Studio admin screens. */
+.mira-fields {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+	gap: 0 1.5rem;
+}
+
+.mira-fields label {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-weight: 600;
+}
+
+.mira-gallery {
+	margin-top: 1rem;
+}
+
+.mira-gallery legend {
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+.mira-gallery__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0 0 0.75rem;
+}
+
+.mira-gallery__list li {
+	position: relative;
+	margin: 0;
+}
+
+.mira-gallery__list img {
+	display: block;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+}
+
+.mira-gallery__remove {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: #fff;
+	color: #b32d2e;
+	line-height: 1;
+	box-shadow: 0 0 0 1px #c3c4c7;
+}
+
+/* Commission requests. */
+.mira-request {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.6rem 1.5rem;
+	margin: 0;
+}
+
+.mira-request dt {
+	font-weight: 600;
+}
+
+.mira-request dd {
+	margin: 0;
+}
+
+.mira-request__project p:first-child {
+	margin-top: 0;
+}
+
+.mira-request__files {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 0;
+}
+
+.mira-request__files a {
+	display: grid;
+	gap: 0.25rem;
+	max-width: 120px;
+	font-size: 12px;
+	text-decoration: none;
+	word-break: break-all;
+}
+
+.mira-request__files img {
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	border: 1px solid #dcdcde;
+}
+
+.mira-status {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #f0f0f1;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.mira-status--mira-new {
+	background: #fcf0e6;
+	color: #8a3a12;
+}
+
+.mira-status--mira-quoted {
+	background: #e8f0fa;
+	color: #1d4f91;
+}
+
+.mira-status--mira-accepted {
+	background: #e7f4ea;
+	color: #1d6b32;
+}
+
+.mira-status--mira-declined {
+	background: #f3f3f3;
+	color: #50575e;
+}

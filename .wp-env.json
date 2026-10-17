@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/wp-env.json",
+  "core": null,
+  "phpVersion": "8.2",
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip",
+    "./plugins/mira-studio"
+  ],
+  "themes": [ "./themes/atelier-mira" ],
+  "config": {
+    "WP_DEBUG": true,
+    "WP_DEBUG_LOG": true,
+    "WP_DEBUG_DISPLAY": false,
+    "SCRIPT_DEBUG": false,
+    "MIRA_DEMO_MODE": true,
+    "MIRA_STATIC_BUILD": false
+  },
+  "lifecycleScripts": {
+    "afterStart": "npx wp-env run cli wp theme activate atelier-mira && npx wp-env run cli wp rewrite structure /%postname%/ --hard"
+  }
+}

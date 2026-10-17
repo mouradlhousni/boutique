@@ -1,0 +1,34 @@
+{
+  "name": "atelier-mira",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Atelier Mira – custom WordPress theme and WooCommerce extension for an illustrator's portfolio and print shop (portfolio project).",
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm run build:blocks && npm run build:assets",
+    "build:blocks": "wp-scripts build --webpack-src-dir=themes/atelier-mira/blocks --output-path=themes/atelier-mira/build/blocks --webpack-copy-php",
+    "build:assets": "node bin/build-assets.js",
+    "start": "wp-scripts start --webpack-src-dir=themes/atelier-mira/blocks --output-path=themes/atelier-mira/build/blocks --webpack-copy-php",
+    "vendor": "node bin/copy-vendor.js",
+    "lint": "npm run lint:php && npm run lint:js && npm run lint:css",
+    "lint:php": "composer lint",
+    "lint:js": "wp-scripts lint-js themes/atelier-mira/blocks themes/atelier-mira/assets/js plugins/mira-studio/assets/js",
+    "lint:css": "wp-scripts lint-style \"themes/atelier-mira/assets/css/**/*.css\" \"themes/atelier-mira/blocks/**/*.css\" \"plugins/mira-studio/assets/css/**/*.css\"",
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "seed": "wp-env run cli wp mira seed",
+    "export:static": "bash bin/export-static.sh"
+  },
+  "devDependencies": {
+    "@fontsource-variable/hanken-grotesk": "^5.3.0",
+    "@fontsource-variable/playfair-display": "^5.3.0",
+    "@wordpress/env": "^10.39.0",
+    "@wordpress/scripts": "^30.27.0",
+    "lightningcss": "^1.33.0",
+    "terser": "^5.51.2",
+    "typescript": "^5.9.3"
+  }
+}

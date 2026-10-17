@@ -1,0 +1,263 @@
+/**
+ * Atelier Mira – header cart button and cart drawer.
+ *
+ * Loaded on every page with cart.js (the drawer lives in every page header).
+ * Uses the tokens of main.css.
+ */
+
+.cart-button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	margin-left: clamp(0.5rem, 2vw, 1.5rem);
+	padding: 0.5rem 0.25rem;
+	color: inherit;
+	font-size: 0.78rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.cart-button:hover {
+	color: var(--accent);
+}
+
+.cart-count {
+	display: inline-grid;
+	place-items: center;
+	min-width: 1.4rem;
+	height: 1.4rem;
+	padding: 0 0.35rem;
+	border-radius: 999px;
+	background: var(--ink);
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+}
+
+.cart-count[data-count="0"] {
+	background: var(--panel);
+	color: var(--ink-soft);
+}
+
+.has-hero .site-header:not(.is-scrolled) .cart-count {
+	background: #fff;
+	color: var(--ink);
+}
+
+.has-hero .site-header:not(.is-scrolled) .cart-button:hover {
+	color: var(--night-gold);
+}
+
+@media (max-width: 799px) {
+
+	.cart-button {
+		order: 1;
+	}
+
+	.cart-button__label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+	}
+}
+
+.cart-drawer {
+	position: fixed;
+	inset: 0 0 0 auto;
+	width: min(100vw, 28rem);
+	max-width: 100vw;
+	height: 100dvh;
+	max-height: 100dvh;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+	background: var(--wall);
+	color: var(--ink);
+	box-shadow: -24px 0 48px -24px rgb(26 25 23 / 0.35);
+}
+
+.cart-drawer::backdrop {
+	background: rgb(22 21 19 / 0.5);
+}
+
+.cart-drawer[open] {
+	animation: drawer-in 0.35s var(--ease);
+}
+
+@keyframes drawer-in {
+
+	from {
+		transform: translateX(100%);
+	}
+}
+
+.has-drawer {
+	overflow: hidden;
+}
+
+.cart-drawer__panel {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 1.25rem clamp(1.25rem, 4vw, 2rem) 1.5rem;
+}
+
+.cart-drawer__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--rule);
+}
+
+.cart-drawer__title {
+	margin: 0;
+	font-size: var(--step-2);
+}
+
+.cart-drawer__close {
+	width: 2.75rem;
+	height: 2.75rem;
+	border: 1px solid var(--rule);
+	border-radius: 50%;
+	background: #fff;
+	color: var(--ink);
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.cart-drawer__close:hover {
+	border-color: var(--ink);
+}
+
+.cart-drawer__status {
+	margin: 0;
+	color: var(--success);
+	font-size: var(--step--1);
+	font-weight: 600;
+}
+
+.cart-drawer__status:not(:empty) {
+	padding-top: 0.75rem;
+}
+
+.cart-drawer__content {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 0;
+}
+
+.woocommerce-mini-cart {
+	flex: 1;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	list-style: none;
+}
+
+.woocommerce-mini-cart-item {
+	position: relative;
+	display: grid;
+	grid-template-columns: 4.5rem 1fr;
+	column-gap: 1rem;
+	padding: 1.1rem 2rem 1.1rem 0;
+	border-bottom: 1px solid var(--rule);
+	font-size: 0.95rem;
+	transition: opacity 0.2s var(--ease);
+}
+
+.woocommerce-mini-cart-item.is-removing {
+	opacity: 0.4;
+}
+
+.woocommerce-mini-cart-item > a:not(.remove) {
+	display: contents;
+	color: var(--ink);
+	font-family: var(--font-display);
+	font-size: 1.1rem;
+	text-decoration: none;
+}
+
+.woocommerce-mini-cart-item img {
+	grid-row: span 3;
+	width: 4.5rem;
+	height: 4.5rem;
+	padding: 0.4rem;
+	border-radius: 10px;
+	object-fit: contain;
+	background: var(--mat);
+}
+
+.woocommerce-mini-cart-item .remove {
+	position: absolute;
+	top: 1rem;
+	right: 0;
+	display: grid;
+	place-items: center;
+	width: 1.75rem;
+	height: 1.75rem;
+	color: var(--ink-soft);
+	font-size: 1.25rem;
+	text-decoration: none;
+}
+
+.woocommerce-mini-cart-item .remove:hover {
+	color: var(--danger);
+}
+
+.woocommerce-mini-cart-item dl.variation,
+.woocommerce-mini-cart-item .quantity {
+	grid-column: 2;
+	margin: 0.2rem 0 0;
+	color: var(--ink-soft);
+	font-size: var(--step--1);
+}
+
+dl.variation {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0 0.4rem;
+}
+
+dl.variation dt,
+dl.variation dd,
+dl.variation dd p {
+	margin: 0;
+}
+
+.woocommerce-mini-cart__total {
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+	padding: 1rem 0;
+	font-size: var(--step-1);
+	font-variant-numeric: tabular-nums;
+}
+
+.woocommerce-mini-cart__buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem;
+	margin: 0;
+}
+
+.woocommerce-mini-cart__empty-message {
+	margin: 2rem 0;
+	color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.cart-drawer[open] {
+		animation: none;
+	}
+}

@@ -1,0 +1,16 @@
+/*
+Theme Name:        Atelier Mira
+Theme URI:         https://github.com/mouradlhousni/boutique
+Description:       Editorial, gallery-like classic theme for the Atelier Mira art studio: portfolio, WooCommerce print shop and commission requests. Pairs with the Mira Studio plugin.
+Version:           1.0.0
+Requires at least: 6.5
+Tested up to:      7.1
+Requires PHP:      8.1
+Author:            Atelier Mira
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       atelier-mira
+Tags:              e-commerce, portfolio, one-column, custom-menu, featured-images, accessibility-ready
+*/
+
+/* Styles live in assets/css/: this file only holds the theme header. */

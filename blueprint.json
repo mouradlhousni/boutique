@@ -1,0 +1,80 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Atelier Mira – live demo",
+		"description": "Illustrator portfolio and print shop on a customised WooCommerce: numbered limited editions, format buttons with a to-scale preview, cart drawer, commission requests. Demo mode is on: checkout works with Cash on delivery, no email is sent and forms store nothing.",
+		"author": "mouradlhousni",
+		"categories": [
+			"Theme",
+			"Plugin",
+			"WooCommerce"
+		]
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "defineWpConfigConsts",
+			"method": "rewrite-wp-config",
+			"consts": {
+				"MIRA_DEMO_MODE": true,
+				"MIRA_STATIC_BUILD": false
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "woocommerce"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "git:directory",
+				"url": "https://github.com/mouradlhousni/boutique",
+				"ref": "master",
+				"refType": "branch",
+				"path": "plugins/mira-studio"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "mira-studio"
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "git:directory",
+				"url": "https://github.com/mouradlhousni/boutique",
+				"ref": "master",
+				"refType": "branch",
+				"path": "themes/atelier-mira"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "atelier-mira"
+			}
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"permalink_structure": "/%postname%/"
+			}
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp mira seed --images=6"
+		}
+	]
+}
