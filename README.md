@@ -4,7 +4,15 @@ A custom WordPress build for a (fictional) illustrator: a portfolio of artworks,
 
 Everything is hand-written: a classic PHP theme (`atelier-mira`) and a business plugin (`mira-studio`). No page builder, no premium plugin, no ACF. WooCommerce is the only third-party plugin, and it is customised **with hooks and filters only: zero template overrides**.
 
+[![Try the live demo in WordPress Playground](https://img.shields.io/badge/Try_the_live_demo-WordPress_Playground-3858e9?logo=wordpress&logoColor=white)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/mouradlhousni/boutique/master/blueprint.json)
+
 ![Home page](docs/screenshots/home.jpg)
+
+## Live demo
+
+**[Try the live demo in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/mouradlhousni/boutique/master/blueprint.json)**: a full WordPress runs in your browser, nothing is hosted. The [`blueprint.json`](blueprint.json) installs WooCommerce, the theme and the plugin from this repository, enables `MIRA_DEMO_MODE`, runs `wp mira seed`, logs you in as admin and opens the home page (allow about a minute for the first load).
+
+In demo mode every feature can be tried, but forms validate without storing or sending anything, and checkout only accepts the "Cash on delivery" test gateway, with order emails switched off.
 
 ## Features
 
